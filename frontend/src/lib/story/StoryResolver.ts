@@ -11,25 +11,41 @@ export interface ResolvedStory {
 }
 
 
-function resolveRefs(refs: Record<string, string>, metrics: any) {
+function resolveRefs(refs: Record<string, string | string[]>, metrics: any) {
     const resolved: Record<string, any> = {};
+
     for (const key in refs) {
-        const metricId = refs[key];
-        const metric = metrics[metricId];
+        const metricRef = refs[key];
 
-        if (!metric) {
-            throw new Error(`Missing metric: ${metricId}`);
+        if (Array.isArray(metricRef)) {
+            // Multi-item case: array of metric IDs
+            resolved[key] = metricRef
+                .map(id => {
+                    const metric = metrics[id];
+                    if (!metric) throw new Error(`Missing metric: ${id}`);
+                    return {
+                        label: metric.label,
+                        value: metric.value,
+                        unit: metric.unit,
+                        type: metric.type
+                    };
+                });
+        } else {
+            // Single-item case
+            const metric = metrics[metricRef];
+            if (!metric) {
+                throw new Error(`Missing metric: ${metricRef}`);
+            }
+            resolved[key] = {
+                label: metric.label,
+                value: metric.value,
+                unit: metric.unit,
+                type: metric.type
+            };
         }
-
-        resolved[key] = {
-            value: metric.value,
-            unit: metric.unit,
-            type: metric.type
-        };
     }
 
     return resolved;
-
 }
 
 export function resolveStory(ref: string, doc: any): ResolvedStory {
@@ -49,7 +65,6 @@ export function resolveStory(ref: string, doc: any): ResolvedStory {
 
     // Resolve metric reference if present
     if (story.data?.refs) {
-        
         resolvedData = resolveRefs(story.data.refs, source.metrics);
     }
 

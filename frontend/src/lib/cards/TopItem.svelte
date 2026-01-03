@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    export let story;
+    const { story } = $props();
 
 </script>
 

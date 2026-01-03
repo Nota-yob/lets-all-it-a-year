@@ -15,14 +15,23 @@
           "value": 18342,
           "unit": "minutes"
         },
-        "most_watched_title_time": {
+        "top_title_watchtime": {
           "type": "duration",
           "value": 607,
           "unit": "minutes"
         },
-        "most_watched_title": {
+        "top_title_by_time": {
           "type": "string",
           "value": "Breaking Bad"
+        },
+        "top_title_by_views": {
+          "type": "string",
+          "value": "Up"
+        },
+        "top_title_views": {
+          "type": "number",
+          "value": 42,
+          "unit": "times"
         },
         "total_titles_watched": {
           "type": "number",
@@ -64,28 +73,48 @@
         "time_spent_watching_story": {
           "id": "time_spent_watching_story",
           "type": "HERO_STAT",
-          "title": "Total watch time",
+          "title": {
+            "before": "Total watch time"
+          },
           "data": {
             "refs": {
               "amount": "total_watch_time"
             }
           }
         },
-        "most_watched_title_story": {
-          "id": "most_watched_title_story",
+        "top_title_by_time_story": {
+          "id": "top_title_by_time_story",
           "type": "TOP_ITEM",
-          "title": "You spent most of your time watching",
+          "title": {
+            "before": "You spent most of your time watching"
+          },
           "data": {
             "refs": {
-              "item": "most_watched_title",
-              "amount": "most_watched_title_time"
+              "item": "top_title_by_time",
+              "amount": "top_title_watchtime"
+            }
+          }
+        },
+        "top_title_by_views_story": {
+          "id": "top_title_by_views_story",
+          "type": "TOP_ITEM",
+          "title": {
+            "before": "You rewatched",
+            "after": "You really loved it !"
+          },
+          "data": {
+            "refs": {
+              "item": "top_title_by_views",
+              "amount": "top_title_views"
             }
           }
         },
         "total_titles_watched_story": {
           "id": "total_titles_watched_story",
           "type": "HERO_STAT",
-          "title": "This year you watched",
+          "title": {
+            "before": "This year you watched"
+          },
           "data": {
             "refs": {
               "amount": "total_titles_watched"
@@ -95,7 +124,10 @@
         "top_categories_story": {
           "id": "top_categories_story",
           "type": "TOP_N_ITEMS",
-          "title": "Your top 5 categories",
+          "title": {
+            "before": "Your top 5 categories",
+            "after": "You are a real drama queen"
+          },
           "data": {
             "refs": {
               "items": [
@@ -113,7 +145,8 @@
   },
   "timeline": [
     "netflix.time_spent_watching_story",
-    "netflix.most_watched_title_story",
+    "netflix.top_title_by_views_story",
+    "netflix.top_title_by_time_story",
     "netflix.total_titles_watched_story",
     "netflix.top_categories_story"
   ]

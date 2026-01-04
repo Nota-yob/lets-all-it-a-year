@@ -1,188 +1,231 @@
 {
-  "version": "1.0",
-  "year": 2025,
-  "sources": {
-    "netflix": {
-      "meta": {
-        "name": "Netflix",
-        "theme": {
-          "primaryColor": "#E50914"
-        }
-      },
-      "metrics": {
-        "total_watch_time": {
-          "type": "duration",
-          "value": 18342,
-          "unit": "minutes"
-        },
-        "top_title_watchtime": {
-          "type": "duration",
-          "value": 607,
-          "unit": "minutes"
-        },
-        "top_title_by_time": {
-          "type": "string",
-          "value": "Breaking Bad"
-        },
-        "top_title_by_views": {
-          "type": "string",
-          "value": "Up"
-        },
-        "top_title_views": {
-          "type": "number",
-          "value": 42,
-          "unit": "times"
-        },
-        "total_titles_watched": {
-          "type": "number",
-          "value": 47,
-          "unit": "films and series"
-        },
-        "category_drama": {
-          "type": "duration",
-          "value": 4320,
-          "unit": "minutes",
-          "label": "Drama"
-        },
-        "category_comedy": {
-          "type": "duration",
-          "value": 2880,
-          "unit": "minutes",
-          "label": "Comedy"
-        },
-        "category_thriller": {
-          "type": "duration",
-          "value": 2160,
-          "unit": "minutes",
-          "label": "Thriller"
-        },
-        "category_documentary": {
-          "type": "duration",
-          "value": 1440,
-          "unit": "minutes",
-          "label": "Documentary"
-        },
-        "category_action": {
-          "type": "duration",
-          "value": 1080,
-          "unit": "minutes",
-          "label": "Action"
-        }
-      },
-      "stories": {
-        "time_spent_watching_story": {
-          "id": "time_spent_watching_story",
-          "type": "HERO_STAT",
-          "title": {
-            "before": "Total watch time"
-          },
-          "data": {
-            "refs": {
-              "amount": "total_watch_time"
-            }
-          }
-        },
-        "top_title_by_time_story": {
-          "id": "top_title_by_time_story",
-          "type": "TOP_ITEM",
-          "title": {
-            "before": "You spent most of your time watching"
-          },
-          "data": {
-            "refs": {
-              "item": "top_title_by_time",
-              "amount": "top_title_watchtime"
-            }
-          }
-        },
-        "top_title_by_views_story": {
-          "id": "top_title_by_views_story",
-          "type": "TOP_ITEM",
-          "title": {
-            "before": "You rewatched",
-            "after": "You really loved it !"
-          },
-          "data": {
-            "refs": {
-              "item": "top_title_by_views",
-              "amount": "top_title_views"
-            }
-          }
-        },
-        "total_titles_watched_story": {
-          "id": "total_titles_watched_story",
-          "type": "HERO_STAT",
-          "title": {
-            "before": "This year you watched"
-          },
-          "data": {
-            "refs": {
-              "amount": "total_titles_watched"
-            }
-          }
-        },
-        "top_categories_story": {
-          "id": "top_categories_story",
-          "type": "TOP_N_ITEMS",
-          "title": {
-            "before": "Your top 5 categories",
-            "after": "You are a real drama queen"
-          },
-          "data": {
-            "refs": {
-              "items": [
-                "category_drama",
-                "category_comedy",
-                "category_thriller",
-                "category_documentary",
-                "category_action"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "vscode": {
-      "meta": {
-        "name": "VSCode",
-        "theme": {
-          "primaryColor": "#0098FF"
-        }
-      },
-      "metrics": {
-        "productive_start_time": {
-          "type": "time",
-          "value": "21:30"
-        },
-        "productive_end_time": {
-          "type": "time",
-          "value": "2:15"
-        }
-      },
-      "stories": {
-        "most_productive_timerange_story": {
-          "id": "most_productive_timerange_story",
-          "type": "TIME_RANGE",
-          "title": {
-            "before": "Your most productive period of the day",
-            "after": "You're a night coder !"
-          },
-          "data": {
-            "refs": {
-              "start": "productive_start_time",
-              "end": "productive_end_time"
-            }
-          }
-        }
-      }
-    }
-  },
-  "timeline": [
-    "netflix.time_spent_watching_story",
-    "netflix.top_title_by_views_story",
-    "netflix.top_title_by_time_story",
-    "netflix.total_titles_watched_story",
-    "netflix.top_categories_story",
-    "vscode.most_productive_timerange_story"
-  ]
+	"version": "1.0",
+	"year": 2025,
+	"sources": {
+		"netflix": {
+			"meta": {
+				"name": "Netflix",
+				"theme": {
+					"primaryColor": "#E50914"
+				}
+			},
+			"metrics": {
+				"total_watch_time": {
+					"type": "duration",
+					"value": 18342,
+					"unit": "minutes"
+				},
+				"top_title_watchtime": {
+					"type": "duration",
+					"value": 607,
+					"unit": "minutes"
+				},
+				"top_title_by_time": {
+					"type": "string",
+					"value": "Breaking Bad"
+				},
+				"top_title_by_views": {
+					"type": "string",
+					"value": "Up"
+				},
+				"top_title_views": {
+					"type": "number",
+					"value": 42,
+					"unit": "times"
+				},
+				"total_titles_watched": {
+					"type": "number",
+					"value": 47,
+					"unit": "films and series"
+				},
+				"category_drama": {
+					"type": "duration",
+					"value": 4320,
+					"unit": "minutes",
+					"label": "Drama"
+				},
+				"category_comedy": {
+					"type": "duration",
+					"value": 2880,
+					"unit": "minutes",
+					"label": "Comedy"
+				},
+				"category_thriller": {
+					"type": "duration",
+					"value": 2160,
+					"unit": "minutes",
+					"label": "Thriller"
+				},
+				"category_documentary": {
+					"type": "duration",
+					"value": 1440,
+					"unit": "minutes",
+					"label": "Documentary"
+				},
+				"category_action": {
+					"type": "duration",
+					"value": 1080,
+					"unit": "minutes",
+					"label": "Action"
+				}
+			},
+			"stories": {
+				"time_spent_watching_story": {
+					"id": "time_spent_watching_story",
+					"type": "HERO_STAT",
+					"title": {
+						"before": "Total watch time"
+					},
+					"data": {
+						"refs": {
+							"amount": "total_watch_time"
+						}
+					}
+				},
+				"top_title_by_time_story": {
+					"id": "top_title_by_time_story",
+					"type": "TOP_ITEM",
+					"title": {
+						"before": "You spent most of your time watching"
+					},
+					"data": {
+						"refs": {
+							"item": "top_title_by_time",
+							"amount": "top_title_watchtime"
+						}
+					}
+				},
+				"top_title_by_views_story": {
+					"id": "top_title_by_views_story",
+					"type": "TOP_ITEM",
+					"title": {
+						"before": "You rewatched",
+						"after": "You really loved it !"
+					},
+					"data": {
+						"refs": {
+							"item": "top_title_by_views",
+							"amount": "top_title_views"
+						}
+					}
+				},
+				"total_titles_watched_story": {
+					"id": "total_titles_watched_story",
+					"type": "HERO_STAT",
+					"title": {
+						"before": "This year you watched"
+					},
+					"data": {
+						"refs": {
+							"amount": "total_titles_watched"
+						}
+					}
+				},
+				"top_categories_story": {
+					"id": "top_categories_story",
+					"type": "TOP_N_ITEMS",
+					"title": {
+						"before": "Your top 5 categories",
+						"after": "You are a real drama queen"
+					},
+					"data": {
+						"refs": {
+							"items": [
+								"category_drama",
+								"category_comedy",
+								"category_thriller",
+								"category_documentary",
+								"category_action"
+							]
+						}
+					}
+				}
+			}
+		},
+		"vscode": {
+			"meta": {
+				"name": "VSCode",
+				"theme": {
+					"primaryColor": "#0098FF"
+				}
+			},
+			"metrics": {
+				"productive_start_time": {
+					"type": "time",
+					"value": "21:30"
+				},
+				"productive_end_time": {
+					"type": "time",
+					"value": "2:15"
+				}
+			},
+			"stories": {
+				"most_productive_timerange_story": {
+					"id": "most_productive_timerange_story",
+					"type": "TIME_RANGE",
+					"title": {
+						"before": "Your most productive period of the day",
+						"after": "You're a night coder !"
+					},
+					"data": {
+						"refs": {
+							"start": "productive_start_time",
+							"end": "productive_end_time"
+						}
+					}
+				}
+			}
+		},
+		"instagram": {
+			"meta": {
+				"name": "Instagram",
+				"theme": {
+					"primaryColor": "#F02C80"
+				}
+			},
+			"metrics": {
+				"total_people_following_you": {
+					"type": "number",
+					"value": 47,
+					"unit": "people"
+				},
+				"total_people_you_followed": {
+					"type": "number",
+					"value": 39,
+					"unit": "people"
+				}
+			},
+			"stories": {
+				"comparison_following_follower_story": {
+					"id": "comparison_following_follower_story",
+					"type": "COMPARISON",
+					"title": {
+						"before": "This year",
+						"after": "You're such a popular person !",
+						"left": "you followed",
+						"right": "you've been followed by"
+					},
+					"data": {
+						"refs": {
+							"left": {
+								"amount": "total_people_you_followed"
+							},
+							"right": {
+								"amount": "total_people_following_you"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"timeline": [
+		"netflix.time_spent_watching_story",
+		"netflix.top_title_by_views_story",
+		"netflix.top_title_by_time_story",
+		"netflix.total_titles_watched_story",
+		"netflix.top_categories_story",
+		"vscode.most_productive_timerange_story",
+		"instagram.comparison_following_follower_story"
+	]
 }

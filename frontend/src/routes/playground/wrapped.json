@@ -141,6 +141,40 @@
           }
         }
       }
+    },
+    "vscode": {
+      "meta": {
+        "name": "VSCode",
+        "theme": {
+          "primaryColor": "#0098FF"
+        }
+      },
+      "metrics": {
+        "productive_start_time": {
+          "type": "time",
+          "value": "21:30"
+        },
+        "productive_end_time": {
+          "type": "time",
+          "value": "2:15"
+        }
+      },
+      "stories": {
+        "most_productive_timerange_story": {
+          "id": "most_productive_timerange_story",
+          "type": "TIME_RANGE",
+          "title": {
+            "before": "Your most productive period of the day",
+            "after": "You're a night coder !"
+          },
+          "data": {
+            "refs": {
+              "start": "productive_start_time",
+              "end": "productive_end_time"
+            }
+          }
+        }
+      }
     }
   },
   "timeline": [
@@ -148,6 +182,7 @@
     "netflix.top_title_by_views_story",
     "netflix.top_title_by_time_story",
     "netflix.total_titles_watched_story",
-    "netflix.top_categories_story"
+    "netflix.top_categories_story",
+    "vscode.most_productive_timerange_story"
   ]
 }
